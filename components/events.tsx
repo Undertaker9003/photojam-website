@@ -32,13 +32,13 @@ export function Events() {
     },
     {
       title: "Coming Soon",
-      date: "-",
-      time: "-",
-      location: "-",
-      attendees: "-",
-      description: "-",
-      poster: "/coming soon thumbnail.jpg",
-      formLink: "#", // new link
+      date: "December 21, 2025",
+      time: "7:00 PM - 10:00 PM",
+      location: "Mutiara Central Cheras",
+      attendees: "Executives + 2 of your friends/family (optional)",
+      description: "Ho ho ho ~ Merry~~CHRISTMAS !!!!",
+      poster: "/Christmas Party Invitation.png",
+      formLink: "https://docs.google.com/forms/d/e/1FAIpQLSfwnoPx9le8WvO-Rp0bIt2J3qpcRbVPyg_ga25hTXeDVg9bIg/viewform?usp=send_form", // new link
     },
   ]
 
