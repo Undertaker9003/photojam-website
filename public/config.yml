@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: Undertaker9003/photojam-website # Your repo path
+  repo: Undertaker9003/photojam-website
   branch: main
-  base_url: https://api.netlify.com   # 👈 Point back to the official API
-  site_domain: 0d5dec62-69e2-42c6-8df6-c7fa699b29ef  # 👈 PASTE YOUR EXACT DOMAIN HERE
+  # FIX: Use your personal Netlify URL here (NO trailing slash)
+  base_url: https://photojam-website.netlify.app
   auth_endpoint: auth
 
 media_folder: "public/images/uploads" # Where club members' thumbnails will be saved
