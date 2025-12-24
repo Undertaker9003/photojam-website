@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/admin",
+      "source": "/(.*)",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",

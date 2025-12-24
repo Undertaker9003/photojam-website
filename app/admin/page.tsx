@@ -16,7 +16,7 @@ const AdminPage = dynamic(
             
             // Initialize the CMS
             // We use 'as any' to bypass the TypeScript error
-            cms.init({ configPath: '/config.yml' } as any)
+            cms.init({ config: { backend: { base_url: 'https://api.netlify.com' } } } as any)
             
             // @ts-ignore
             window.CMS_MANUAL_INIT = true
