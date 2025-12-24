@@ -5,20 +5,17 @@ import { useEffect } from "react"
 
 const AdminPage = dynamic(
   () =>
-    import("decap-cms-app").then((mod: any) => {
-      // FIX 1: Grab the right object. If 'default' exists, use it.
+    import("decap-cms-app").then((mod) => {
       const cms = mod.default || mod
 
-      // Return the component that will run the init code
       return function CmsComponent() {
         useEffect(() => {
-          // FIX 2: Prevent double-initialization (common React strict mode issue)
           // @ts-ignore
           if (typeof window !== "undefined" && !window.CMS_MANUAL_INIT) {
             
-            console.log("Initializing CMS...") // Debug log
-            
-            cms.init({ configPath: "/admin/config.yml" })
+            // FIX: Remove the specific path. 
+            // We will let the CMS find 'config.yml' automatically.
+            cms.init() 
             
             // @ts-ignore
             window.CMS_MANUAL_INIT = true
@@ -28,10 +25,7 @@ const AdminPage = dynamic(
         return <div id="nc-root" />
       }
     }),
-  { 
-    ssr: false,
-    loading: () => <div className="p-10 text-center">Loading Admin Panel...</div> 
-  }
+  { ssr: false, loading: () => <p>Loading Admin...</p> }
 )
 
 export default AdminPage
