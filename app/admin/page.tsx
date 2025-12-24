@@ -12,18 +12,14 @@ const AdminPage = dynamic(
         useEffect(() => {
           // @ts-ignore
           if (typeof window !== "undefined" && !window.CMS_MANUAL_INIT) {
-            console.log("Setting up CMS config...")
-
-            // 1. Manually add the config link tag to the <head>
-            // This is the official way to redirect the CMS to a specific config file
-            const link = document.createElement("link")
-            link.rel = "cms-config-url"
-            link.href = "/admin/config.yml"
-            document.head.appendChild(link)
-
-            // 2. Initialize the CMS (now it will look at the link tag above)
-            cms.init()
-
+            
+            console.log("Forcing config path...")
+            
+            // FIX: We use 'as any' to bypass the TypeScript error.
+            // This works because the library supports this option, 
+            // even if the type definitions don't know about it yet.
+            cms.init({ configPath: '/admin/config.yml' } as any)
+            
             // @ts-ignore
             window.CMS_MANUAL_INIT = true
           }
@@ -34,7 +30,7 @@ const AdminPage = dynamic(
     }),
   { 
     ssr: false,
-    loading: () => <div className="min-h-screen flex items-center justify-center">Loading Admin Panel...</div> 
+    loading: () => <div className="flex h-screen items-center justify-center">Loading Admin...</div>
   }
 )
 
