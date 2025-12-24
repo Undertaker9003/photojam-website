@@ -25,26 +25,26 @@ export default function RootLayout({
         {children}
         <Analytics />
 
-        {/* 1. Load the Netlify Identity library FIRST */}
-        <Script 
-          src="https://identity.netlify.com/v1/netlify-identity-widget.js" 
-          strategy="beforeInteractive" 
-        />
+        {/* 1. The library MUST load first */}
+          <Script 
+            src="https://identity.netlify.com/v1/netlify-identity-widget.js" 
+            strategy="beforeInteractive" 
+          />
 
-        {/* 2. Then run the redirect logic after the page is interactive */}
-        <Script id="netlify-identity-redirect" strategy="afterInteractive">
-          {`
-            if (window.netlifyIdentity) {
-              window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                  window.netlifyIdentity.on("login", () => {
-                    document.location.href = "/admin/";
-                  });
-                }
-              });
-            }
-          `}
-        </Script>
+          {/* 2. Then the redirect logic */}
+          <Script id="netlify-identity-redirect" strategy="afterInteractive">
+            {`
+              if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", user => {
+                  if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                      document.location.href = "/admin/";
+                    });
+                  }
+                });
+              }
+            `}
+          </Script>
       </body>
     </html>
   )
