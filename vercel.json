@@ -1,15 +1,11 @@
 {
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/admin",
       "headers": [
         {
           "key": "Cross-Origin-Opener-Policy",
           "value": "unsafe-none"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
         }
       ]
     }
