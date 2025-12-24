@@ -1,22 +1,41 @@
 "use client"
 
-import Link from 'next/link'
-
-export type Project = {
-  slug: string
-  title: string
-  description: string
-  image: string
-  link: string
-  index: number
-}
-
 type GalleryProps = {
-  projects: Project[]
   limit?: number
 }
 
-export function Gallery({ projects, limit }: GalleryProps) {
+export function Gallery({ limit }: GalleryProps) {
+  const projects = [
+    {
+      title: "Photojam x PoiLam workshop",
+      description: "Capturing the essence of stage show through bold perspectives",
+      image: "/poilam workshop thumbnail.JPG",
+      link: "https://drive.google.com/drive/u/5/folders/13ZR2ha0jz555fm_ChVAdvj3t1FevsX7_",
+      index: 1,
+    },
+    {
+      title: "Setiawan KLPF trip",
+      description: "Stories told through the human connection and emotion",
+      image: "/setiawan thumbnail.JPG",
+      link: "https://drive.google.com/drive/u/5/folders/1RgorYjfZnZDeeAdulXvOGQ1Bm9CBbkYr",
+      index: 2,
+    },
+    {
+      title: "Pulau Ketam through lens",
+      description: "Discovering untamed beauty of Pulau Ketam",
+      image: "/pulau ketam thumbnail.JPG",
+      link: "https://drive.google.com/drive/u/5/folders/16jdc2e2P-atxACN_euNyN3-hydTF7f91",
+      index: 3,
+    },
+    {
+      title: "Kuala Sepetang Trip",
+      description: "Coming Soon",
+      image: "/coming_soon_landscape-1.png",
+      link: "#",
+      index: 4,
+    },
+  ]
+
   const visibleProjects = limit ? projects.slice(0, limit) : projects
 
   return (
@@ -27,7 +46,7 @@ export function Gallery({ projects, limit }: GalleryProps) {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-4 text-balance">
-            Our Collection
+            Our Collection 
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore the stunning work from our community members
@@ -37,7 +56,7 @@ export function Gallery({ projects, limit }: GalleryProps) {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {visibleProjects.map((project) => (
             <a
-              key={project.slug}
+              key={project.index}
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -47,10 +66,9 @@ export function Gallery({ projects, limit }: GalleryProps) {
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  // FIX: We added (project.image || "") to prevent the crash
                   className={`transition-transform duration-300
                     ${
-                      project.link === "#" || (project.image || "").includes("coming_soon")
+                      project.title === "Kuala Sepetang Trip"
                         ? "w-3/4 h-3/4 object-contain"
                         : "w-full h-full object-cover group-hover:scale-105"
                     }`}
