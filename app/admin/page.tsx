@@ -13,12 +13,9 @@ const AdminPage = dynamic(
           // @ts-ignore
           if (typeof window !== "undefined" && !window.CMS_MANUAL_INIT) {
             
-            console.log("Forcing config path...")
-            
-            // FIX: We use 'as any' to bypass the TypeScript error.
-            // This works because the library supports this option, 
-            // even if the type definitions don't know about it yet.
-            cms.init({ configPath: '/admin/config.yml' } as any)
+            // FIX: Point to the root config file
+            // We use 'as any' to bypass the TypeScript check
+            cms.init({ configPath: '/config.yml' } as any)
             
             // @ts-ignore
             window.CMS_MANUAL_INIT = true
@@ -28,10 +25,7 @@ const AdminPage = dynamic(
         return <div id="nc-root" />
       }
     }),
-  { 
-    ssr: false,
-    loading: () => <div className="flex h-screen items-center justify-center">Loading Admin...</div>
-  }
+  { ssr: false, loading: () => <p>Loading...</p> }
 )
 
 export default AdminPage
