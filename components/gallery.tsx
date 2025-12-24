@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 
-// Define the shape of our project data
 export type Project = {
   slug: string
   title: string
@@ -13,12 +12,11 @@ export type Project = {
 }
 
 type GalleryProps = {
-  projects: Project[] // Data now comes from the CMS loader
+  projects: Project[]
   limit?: number
 }
 
 export function Gallery({ projects, limit }: GalleryProps) {
-  // Use the projects passed from the page, or the limit if provided
   const visibleProjects = limit ? projects.slice(0, limit) : projects
 
   return (
@@ -49,10 +47,10 @@ export function Gallery({ projects, limit }: GalleryProps) {
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
+                  // FIX: We added (project.image || "") to prevent the crash
                   className={`transition-transform duration-300
                     ${
-                      // If the link is '#' or it's a coming soon image, keep it contained
-                      project.link === "#" || project.image.includes("coming_soon")
+                      project.link === "#" || (project.image || "").includes("coming_soon")
                         ? "w-3/4 h-3/4 object-contain"
                         : "w-full h-full object-cover group-hover:scale-105"
                     }`}
