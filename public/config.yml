@@ -2,10 +2,9 @@ backend:
   name: github
   repo: Undertaker9003/photojam-website
   branch: main
-  base_url: https://api.netlify.com            # 👈 Forces the popup to find the 'auth' page
-  site_domain: photojam-website.netlify.app    # 👈 Tells the API to use YOUR Git Gateway
-  auth_endpoint: auth
-
+  base_url: https://api.netlify.com
+  site_domain: photojam-website.netlify.app
+  
 media_folder: "public/images/uploads" # Where club members' thumbnails will be saved
 public_folder: "/images/uploads"
 
