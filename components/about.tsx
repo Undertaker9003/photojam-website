@@ -1,8 +1,8 @@
 export function About() {
   const stats = [
-    { number: "2.5K+", label: "Community Members" },
+    { number: "200+", label: "Community Members" },
     { number: "500+", label: "Monthly Shoots" },
-    { number: "15+", label: "Years of Excellence" },
+    { number: "5+", label: "Years of Excellence" },
   ]
 
   return (
