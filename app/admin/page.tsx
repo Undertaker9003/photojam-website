@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic"
 import { useEffect } from "react"
+import Script from "next/script" // Import the Script component
 
 const AdminPage = dynamic(
   () =>
@@ -13,8 +14,8 @@ const AdminPage = dynamic(
           // @ts-ignore
           if (typeof window !== "undefined" && !window.CMS_MANUAL_INIT) {
             
-            // FIX: Point to the root config file
-            // We use 'as any' to bypass the TypeScript check
+            // Initialize the CMS
+            // We use 'as any' to bypass the TypeScript error
             cms.init({ configPath: '/config.yml' } as any)
             
             // @ts-ignore
@@ -25,7 +26,17 @@ const AdminPage = dynamic(
         return <div id="nc-root" />
       }
     }),
-  { ssr: false, loading: () => <p>Loading...</p> }
+  { ssr: false, loading: () => <p className="p-10 text-center">Loading Admin...</p> }
 )
 
-export default AdminPage
+export default function Page() {
+  return (
+    <>
+      {/* This Script is CRITICAL for Vercel users. 
+        It allows the Netlify popup to talk to your Next.js app.
+      */}
+      <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+      <AdminPage />
+    </>
+  )
+}
