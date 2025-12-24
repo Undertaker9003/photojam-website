@@ -1,15 +1,19 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect } from "react";
 
-export default function AdminPage() {
-  useEffect(() => {
-    // Only run this code in the browser
-    (async () => {
-      const CMS = (await import("decap-cms-app")).default;
-      CMS.init();
-    })();
-  }, []);
+const DecapCMS = dynamic(
+  () =>
+    import("decap-cms-app").then((cms: any) => {
+      // FIX: Explicitly tell it where the config file lives
+      // This prevents the 404 error if the URL is missing a slash
+      cms.init({ configPath: '/admin/config.yml' }); 
+      return () => null;
+    }),
+  { ssr: false }
+);
 
-  return <div id="nc-root" />; // Decap CMS looks for this ID to mount the UI
+export default function AdminPage() {
+  return <DecapCMS />;
 }
