@@ -3,9 +3,11 @@
 import { Calendar, MapPin, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import Image from "next/image"
 
 export function Events() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [zoomed, setZoomed] = useState(false)
 
   const events = [
     {
@@ -31,7 +33,7 @@ export function Events() {
       formLink: "https://forms.gle/pGWmxfTsMbKkm1j48", // new link
     },
     {
-      title: "Coming Soon",
+      title: "Photojam Christmas Party 2025",
       date: "December 21, 2025",
       time: "7:00 PM - 10:00 PM",
       location: "Mutiara Central Cheras",
@@ -39,6 +41,17 @@ export function Events() {
       description: "Ho ho ho ~ Merry~~CHRISTMAS !!!!",
       poster: "/Christmas Party Invitation.png",
       formLink: "https://docs.google.com/forms/d/e/1FAIpQLSfwnoPx9le8WvO-Rp0bIt2J3qpcRbVPyg_ga25hTXeDVg9bIg/viewform?usp=send_form", // new link
+    },
+    {
+      title: "Frame the Campus",
+      date: "March 6, 2026",
+      time: "9:00 AM - 5:00 PM",
+      location: "Xiamen University Malaysia",
+      attendees: "15 participants",
+      description:
+        "A photo shoot session and editing class hosted by Xiamen University Malaysia Photography Club!",
+      poster: "/xmumtalk.jpeg",
+      formLink: "https://docs.google.com/forms/d/e/1FAIpQLSeHk5UC6Q-vYvk56Av1Zpw_c8Ii1FumgLFoPFdo82WUhNUtww/viewform?usp=send_form",
     },
   ]
 
@@ -62,12 +75,19 @@ export function Events() {
             >
               {/* Poster on the left */}
               <div className="w-full md:w-1/3 flex justify-center">
-                <img
-                  src={event.poster}
-                  alt={`${event.title} poster`}
-                  className="rounded-lg w-full h-64 object-cover cursor-pointer"
+                <div
+                  className="relative w-full h-80 cursor-pointer"
                   onClick={() => setSelectedImage(event.poster)}
-                />
+                >
+                  <Image
+                    src={event.poster}
+                    alt={`${event.title} poster`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    quality={100}
+                    className="rounded-lg object-contain"
+                  />
+                </div>
               </div>
 
               {/* Details on the right */}
@@ -114,13 +134,25 @@ export function Events() {
       {/* Image Popup Overlay */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
-          onClick={() => setSelectedImage(null)}
+          className={`fixed inset-0 bg-black/70 flex items-center justify-center z-50 ${zoomed ? "overflow-auto cursor-zoom-out" : "cursor-zoom-in"
+            }`}
+          onClick={() => {
+            setSelectedImage(null)
+            setZoomed(false)
+          }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={selectedImage}
             alt="Full poster"
-            className="max-w-3xl max-h-[80vh] rounded-lg shadow-lg"
+            className={`rounded-lg shadow-lg transition-transform duration-300 ${zoomed
+              ? "max-w-none max-h-none scale-[2] cursor-zoom-out"
+              : "max-w-3xl max-h-[80vh] cursor-zoom-in"
+              }`}
+            onClick={(e) => {
+              e.stopPropagation()
+              setZoomed(!zoomed)
+            }}
           />
         </div>
       )}
