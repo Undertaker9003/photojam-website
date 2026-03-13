@@ -1,45 +1,16 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import { type Project } from "@/lib/projects"
 
 type GalleryProps = {
-  limit?: number
+  projects: Project[]
+  showViewAll?: boolean
 }
 
-export function Gallery({ limit }: GalleryProps) {
-  const projects = [
-    {
-      title: "Photojam x PoiLam workshop",
-      description: "Capturing the essence of stage show through bold perspectives",
-      image: "/poilam workshop thumbnail.JPG",
-      link: "https://drive.google.com/drive/folders/1KH35rDOEpwIt3QbiUtnOcf71FeAYRcJQ?usp=sharing",
-      index: 1,
-    },
-    {
-      title: "Setiawan KLPF trip",
-      description: "Stories told through the human connection and emotion",
-      image: "/setiawan thumbnail.JPG",
-      link: "https://drive.google.com/drive/u/5/folders/1RgorYjfZnZDeeAdulXvOGQ1Bm9CBbkYr",
-      index: 2,
-    },
-    {
-      title: "Pulau Ketam through lens",
-      description: "Discovering untamed beauty of Pulau Ketam",
-      image: "/pulau ketam thumbnail.JPG",
-      link: "https://drive.google.com/drive/folders/1dGFDVeXdqHaUB5uIbgGVDsFp1NwydOvG?usp=sharing",
-      index: 3,
-    },
-    {
-      title: "Kuala Sepetang Trip",
-      description: "Discovering untamed beauty of Kuala Sepetang",
-      image: "/kualasepetangthumbnail.JPG",
-      link: "https://drive.google.com/drive/folders/1rOeBn_t_MmCsSPvOox_oTpD8hTWFUGM7?usp=sharing",
-      index: 4,
-    },
-  ]
-
-  const visibleProjects = limit ? projects.slice(0, limit) : projects
-
+export function Gallery({ projects, showViewAll }: GalleryProps) {
   return (
     <section
       id="gallery"
@@ -56,17 +27,17 @@ export function Gallery({ limit }: GalleryProps) {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {visibleProjects.map((project) => (
+          {projects.map((project) => (
             <a
               key={project.index}
-              href={project.link}
+              href={project.externalLink || "#"}
               target="_blank"
               rel="noopener noreferrer"
               className="block"
             >
               <div className="group relative overflow-hidden rounded-lg aspect-video bg-muted hover:shadow-xl transition-all duration-300">
                 <Image
-                  src={project.image || "/placeholder.svg"}
+                  src={project.thumbnail || "/placeholder.svg"}
                   alt={project.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -86,6 +57,18 @@ export function Gallery({ limit }: GalleryProps) {
             </a>
           ))}
         </div>
+
+        {showViewAll && (
+          <div className="text-center mt-10">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 text-lg font-medium text-primary hover:underline transition"
+            >
+              View All Projects
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   )

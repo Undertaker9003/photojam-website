@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Mail, Instagram } from "lucide-react"
 
 // Custom WhatsApp SVG component
@@ -13,9 +14,8 @@ const WhatsappIcon = ({ className }: { className?: string }) => (
 );
 
 export function Footer() {
-  const email = "photojamcommunity@gmail.com"; // your email
+  const email = "photojamcommunity@gmail.com";
   const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}`;
-  const whatsappLink = "https://chat.whatsapp.com/your-group-link"; // replace with your WhatsApp group link
 
   return (
     <footer className="bg-foreground text-background py-12 md:py-16">
@@ -33,10 +33,9 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#gallery" className="hover:text-white transition">Gallery</a></li>
-              <li><a href="#events" className="hover:text-white transition">Events</a></li>
-              <li><a href="#about" className="hover:text-white transition">About</a></li>
-              <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
+              <li><Link href="/gallery" className="hover:text-white transition">Gallery</Link></li>
+              <li><Link href="/events" className="hover:text-white transition">Events</Link></li>
+              <li><Link href="/about" className="hover:text-white transition">About</Link></li>
             </ul>
           </div>
 
@@ -46,7 +45,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href={whatsappLink}
+                  href="https://chat.whatsapp.com/LRWRXj6N80kJcUIsIHPV6V"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition"
@@ -54,9 +53,6 @@ export function Footer() {
                   Join Us
                 </a>
               </li>
-              <li><a href="#workshops" className="hover:text-white transition">Workshops</a></li>
-              <li><a href="#resources" className="hover:text-white transition">Resources</a></li>
-              <li><a href="#blog" className="hover:text-white transition">Blog</a></li>
             </ul>
           </div>
 
@@ -67,10 +63,9 @@ export function Footer() {
               <a href="https://www.instagram.com/photojamcommunity?igsh=bno4OGNudmViOHFz" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://chat.whatsapp.com/LRWRXj6N80kJcUIsIHPV6" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+              <a href="https://chat.whatsapp.com/LRWRXj6N80kJcUIsIHPV6V" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
                 <WhatsappIcon className="w-5 h-5" />
               </a>
-              {/* Gmail-specific link */}
               <a href={gmailLink} target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
                 <Mail className="w-5 h-5" />
               </a>
@@ -80,11 +75,7 @@ export function Footer() {
 
         {/* Footer bottom */}
         <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm">
-          <p className="text-background/80">© 2025 Photojam. All rights reserved.</p>
-          <div className="flex gap-6 text-background/80">
-            <a href="#privacy" className="hover:text-white transition">Privacy Policy</a>
-            <a href="#terms" className="hover:text-white transition">Terms of Service</a>
-          </div>
+          <p className="text-background/80">&copy; 2025 Photojam. All rights reserved.</p>
         </div>
       </div>
     </footer>

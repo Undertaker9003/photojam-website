@@ -1,30 +1,22 @@
-import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { Gallery } from "@/components/gallery"
 import { About } from "@/components/about"
 import { Events } from "@/components/events"
 import { CTA } from "@/components/cta"
-import { Footer } from "@/components/footer"
-// 1. Import the data loader we created
-import { getGalleryData } from "@/lib/getGallery"
+import { getProjects } from "@/lib/projects"
+import { getEvents } from "@/lib/events"
 
 export default function Home() {
-  // 2. Fetch the projects from the local /content/gallery folder
-  const projects = getGalleryData();
+  const previewProjects = getProjects(3)
+  const previewEvents = getEvents(3)
 
   return (
-    <main id="top" className="bg-background scroll-smooth">
-      <Header />
+    <>
       <Hero />
-      {/* 3. Pass the fetched projects into the Gallery component.
-        If you only want to show the latest 4 on the homepage, 
-        you can use the limit prop: <Gallery projects={projects} limit={4} />
-      */}
-      <Gallery projects={projects} />
+      <Gallery projects={previewProjects} showViewAll />
       <About />
-      <Events />
+      <Events events={previewEvents} showViewAll />
       <CTA />
-      <Footer />
-    </main>
+    </>
   )
 }

@@ -1,59 +1,20 @@
-"use client"; // 👈 must be the very first line
+"use client"
 
-import { Calendar, MapPin, Users } from "lucide-react"
+import { Calendar, MapPin, Users, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
+import { type Event } from "@/lib/events"
 
-export function Events() {
+type EventsProps = {
+  events: Event[]
+  showViewAll?: boolean
+}
+
+export function Events({ events, showViewAll }: EventsProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [zoomed, setZoomed] = useState(false)
-
-  const events = [
-    {
-      title: "2025 World Photography Day @Kuala Sepetang",
-      date: "December 6-7, 2025",
-      time: "6:30 AM - 4.30 PM",
-      location: "Kuala Sepetang",
-      attendees: "50 photographers",
-      description:
-        "Join us for a guided exploration, eagle feeding & firefly watching at Kuala Sepetang!",
-      poster: "/kuala sepetang thumbnail.jpg",
-      formLink: "https://docs.google.com/forms/d/e/1FAIpQLSffD0QIxgQKLeUNzSqAsi1UlRN-0bE0E2HyH74HVTN4SslEMg/viewform?usp=send_form",
-    },
-    {
-      title: "Street Photography Workshop",
-      date: "December 21, 2025",
-      time: "8:00 AM - 3:00 PM",
-      location: "BB Park Bukit Bintang KL",
-      attendees: "40 participants",
-      description:
-        "Master lighting techniques and composition for compelling street photography!",
-      poster: "/street photography BB thumbnail.jpg",
-      formLink: "https://forms.gle/pGWmxfTsMbKkm1j48", // new link
-    },
-    {
-      title: "Photojam Christmas Party 2025",
-      date: "December 21, 2025",
-      time: "7:00 PM - 10:00 PM",
-      location: "Mutiara Central Cheras",
-      attendees: "Executives + 2 of your friends/family (optional)",
-      description: "Ho ho ho ~ Merry~~CHRISTMAS !!!!",
-      poster: "/Christmas Party Invitation.png",
-      formLink: "https://docs.google.com/forms/d/e/1FAIpQLSfwnoPx9le8WvO-Rp0bIt2J3qpcRbVPyg_ga25hTXeDVg9bIg/viewform?usp=send_form", // new link
-    },
-    {
-      title: "Frame the Campus",
-      date: "March 6, 2026",
-      time: "9:00 AM - 5:00 PM",
-      location: "Xiamen University Malaysia",
-      attendees: "15 participants",
-      description:
-        "A photo shoot session and editing class hosted by Xiamen University Malaysia Photography Club!",
-      poster: "/xmumtalk.jpeg",
-      formLink: "https://docs.google.com/forms/d/e/1FAIpQLSeHk5UC6Q-vYvk56Av1Zpw_c8Ii1FumgLFoPFdo82WUhNUtww/viewform?usp=send_form",
-    },
-  ]
 
   return (
     <section id="events" className="py-16 md:py-24 bg-background">
@@ -129,6 +90,18 @@ export function Events() {
             </div>
           ))}
         </div>
+
+        {showViewAll && (
+          <div className="text-center mt-10">
+            <Link
+              href="/events"
+              className="inline-flex items-center gap-2 text-lg font-medium text-primary hover:underline transition"
+            >
+              View All Events
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Image Popup Overlay */}

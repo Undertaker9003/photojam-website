@@ -22,13 +22,9 @@ export const projects: Project[] = [
     title: "Photojam x PoiLam workshop",
     description: "Capturing the essence of stage show through bold perspectives",
     thumbnail: "/poilam workshop thumbnail.JPG",
-    externalLink: "https://drive.google.com/drive/u/5/folders/13ZR2ha0jz555fm_ChVAdvj3t1FevsX7_",
+    externalLink: "https://drive.google.com/drive/folders/1KH35rDOEpwIt3QbiUtnOcf71FeAYRcJQ?usp=sharing",
     index: 1,
-    images: [
-      { url: "/images/poilam/photo1.jpg", alt: "Stage show perspective 1" },
-      { url: "/images/poilam/photo2.jpg", alt: "Stage show perspective 2" },
-      // Add more local images here as you upload them to your public folder
-    ],
+    images: [],
   },
   {
     slug: "setiawan-klpf-trip",
@@ -44,17 +40,21 @@ export const projects: Project[] = [
     title: "Pulau Ketam through lens",
     description: "Discovering untamed beauty of Pulau Ketam",
     thumbnail: "/pulau ketam thumbnail.JPG",
-    externalLink: "https://drive.google.com/drive/u/5/folders/16jdc2e2P-atxACN_euNyN3-hydTF7f91",
+    externalLink: "https://drive.google.com/drive/folders/1dGFDVeXdqHaUB5uIbgGVDsFp1NwydOvG?usp=sharing",
     index: 3,
     images: [],
   },
   {
     slug: "kuala-sepetang",
     title: "Kuala Sepetang Trip",
-    description: "Coming Soon",
-    thumbnail: "/coming_soon_landscape-1.png",
-    externalLink: "#",
+    description: "Discovering untamed beauty of Kuala Sepetang",
+    thumbnail: "/kualasepetangthumbnail.JPG",
+    externalLink: "https://drive.google.com/drive/folders/1rOeBn_t_MmCsSPvOox_oTpD8hTWFUGM7?usp=sharing",
     index: 4,
     images: [],
   },
 ];
+
+export function getProjects(limit?: number): Project[] {
+  return limit ? projects.slice(0, limit) : projects;
+}

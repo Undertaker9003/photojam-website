@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 
 export function Hero() {
@@ -54,8 +55,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 3, duration: 1 }}
           >
-            {/* Get Started → scroll to Gallery */}
-            <a href="#gallery">
+            {/* Get Started → Gallery page */}
+            <Link href="/gallery">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground text-base md:text-lg h-12 px-8"
@@ -63,7 +64,7 @@ export function Hero() {
                 Get Started
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </a>
+            </Link>
 
             {/* Learn More → open Instagram */}
             <a
