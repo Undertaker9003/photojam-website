@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react"
 
 export function CTA() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-r from-primary/10 via-background to-secondary/10">
+    <section className="py-24 md:py-36 bg-gradient-to-r from-primary/10 via-background to-secondary/10">
       <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 text-balance">
+        <h2 className="text-4xl md:text-6xl font-serif text-foreground mb-6 text-balance">
           Ready to Join the Community?
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">

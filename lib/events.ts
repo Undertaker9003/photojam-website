@@ -1,6 +1,7 @@
 export type Event = {
   title: string
   date: string
+  sortDate: string // ISO date for sorting (YYYY-MM-DD)
   time: string
   location: string
   attendees: string
@@ -13,6 +14,7 @@ export const events: Event[] = [
   {
     title: "2025 World Photography Day @Kuala Sepetang",
     date: "December 6-7, 2025",
+    sortDate: "2025-12-06",
     time: "6:30 AM - 4.30 PM",
     location: "Kuala Sepetang",
     attendees: "50 photographers",
@@ -25,6 +27,7 @@ export const events: Event[] = [
   {
     title: "Street Photography Workshop",
     date: "December 21, 2025",
+    sortDate: "2025-12-21",
     time: "8:00 AM - 3:00 PM",
     location: "BB Park Bukit Bintang KL",
     attendees: "40 participants",
@@ -36,6 +39,7 @@ export const events: Event[] = [
   {
     title: "Photojam Christmas Party 2025",
     date: "December 21, 2025",
+    sortDate: "2025-12-21",
     time: "7:00 PM - 10:00 PM",
     location: "Mutiara Central Cheras",
     attendees: "Executives + 2 of your friends/family (optional)",
@@ -47,6 +51,7 @@ export const events: Event[] = [
   {
     title: "Frame the Campus",
     date: "March 6, 2026",
+    sortDate: "2026-03-06",
     time: "9:00 AM - 5:00 PM",
     location: "Xiamen University Malaysia",
     attendees: "15 participants",
@@ -59,5 +64,8 @@ export const events: Event[] = [
 ]
 
 export function getEvents(limit?: number): Event[] {
-  return limit ? events.slice(0, limit) : events
+  const sorted = [...events].sort(
+    (a, b) => new Date(b.sortDate).getTime() - new Date(a.sortDate).getTime()
+  )
+  return limit ? sorted.slice(0, limit) : sorted
 }

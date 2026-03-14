@@ -14,11 +14,11 @@ export function Gallery({ projects, showViewAll }: GalleryProps) {
   return (
     <section
       id="gallery"
-      className="py-16 md:py-24 bg-background scroll-mt-20"
+      className="py-24 md:py-36 bg-background scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-4 text-balance">
+          <h2 className="text-4xl md:text-6xl font-serif text-foreground mb-4 text-balance">
             Our Collection
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -28,11 +28,9 @@ export function Gallery({ projects, showViewAll }: GalleryProps) {
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {projects.map((project) => (
-            <a
+            <Link
               key={project.index}
-              href={project.externalLink || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/gallery/${project.slug}`}
               className="block"
             >
               <div className="group relative overflow-hidden rounded-lg aspect-video bg-muted hover:shadow-xl transition-all duration-300">
@@ -54,7 +52,7 @@ export function Gallery({ projects, showViewAll }: GalleryProps) {
                   </p>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 

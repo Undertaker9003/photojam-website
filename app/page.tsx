@@ -7,7 +7,7 @@ import { getProjects } from "@/lib/projects"
 import { getEvents } from "@/lib/events"
 
 export default function Home() {
-  const previewProjects = getProjects(3)
+  const previewProjects = getProjects(2)
   const previewEvents = getEvents(3)
 
   return (

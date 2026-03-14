@@ -13,6 +13,9 @@ export default function EventsPage() {
   return (
     <div className="pt-24">
       <Events events={allEvents} />
+      <p className="text-center text-2xl md:text-4xl font-serif text-muted-foreground -mt-20 mb-30 py-10">
+        Coming Soon
+      </p>
     </div>
   )
 }

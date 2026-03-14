@@ -33,7 +33,7 @@ export const projects: Project[] = [
     thumbnail: "/setiawan thumbnail.JPG",
     externalLink: "https://drive.google.com/drive/u/5/folders/1RgorYjfZnZDeeAdulXvOGQ1Bm9CBbkYr",
     index: 2,
-    images: [], // Future images go here
+    images: [],
   },
   {
     slug: "pulau-ketam",
@@ -57,4 +57,8 @@ export const projects: Project[] = [
 
 export function getProjects(limit?: number): Project[] {
   return limit ? projects.slice(0, limit) : projects;
+}
+
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find((p) => p.slug === slug);
 }

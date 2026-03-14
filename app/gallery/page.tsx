@@ -13,6 +13,9 @@ export default function GalleryPage() {
   return (
     <div className="pt-24">
       <Gallery projects={allProjects} />
+      <p className="text-center text-2xl md:text-4xl font-serif text-muted-foreground -mt-20 mb-30 py-10">
+        Coming Soon
+      </p>
     </div>
   )
 }

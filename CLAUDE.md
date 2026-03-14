@@ -15,6 +15,7 @@ npm run lint     # ESLint
 npm run start    # Serve production build
 npx tsx scripts/compress_images.ts  # Compress public/ thumbnails with Sharp
 ```
+do not access .env.local without my permission
 
 ## Architecture
 

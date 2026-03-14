@@ -1,9 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowDown, ChevronDown } from "lucide-react"
 import { motion } from "framer-motion"
-import Link from "next/link"
+import { Link as ScrollLink } from "react-scroll"
 
 
 export function Hero() {
@@ -28,7 +28,7 @@ export function Hero() {
 
           {/* Title fades in second */}
           <motion.h1
-            className="text-5xl md:text-7xl font-bold leading-tight"
+            className="text-5xl md:text-7xl font-serif leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 1 }}
@@ -55,16 +55,16 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 3, duration: 1 }}
           >
-            {/* Get Started → Gallery page */}
-            <Link href="/gallery">
+            {/* Get Started → Scroll Down */}
+            <ScrollLink to="gallery" smooth={true} duration={800} offset={-80} className="inline-block cursor-pointer">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground text-base md:text-lg h-12 px-8"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground text-base md:text-lg h-12 px-8 group"
               >
                 Get Started
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowDown className="w-5 h-5 ml-2 transition-transform group-hover:translate-y-1" />
               </Button>
-            </Link>
+            </ScrollLink>
 
             {/* Learn More → open Instagram */}
             <a
@@ -83,6 +83,17 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
+      {/* Bouncing Scroll Indicator overlay */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 4, duration: 1 }}
+      >
+        <ScrollLink to="gallery" smooth={true} duration={800} offset={-80} aria-label="Scroll down">
+          <ChevronDown className="w-10 h-10 text-white/70 animate-bounce cursor-pointer hover:text-white transition-colors" />
+        </ScrollLink>
+      </motion.div>
     </div>
   );
 }

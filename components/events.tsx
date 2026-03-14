@@ -2,7 +2,7 @@
 
 import { Calendar, MapPin, Users, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { type Event } from "@/lib/events"
@@ -14,14 +14,40 @@ type EventsProps = {
 
 export function Events({ events, showViewAll }: EventsProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [zoomed, setZoomed] = useState(false)
+  const [zoomLevel, setZoomLevel] = useState(1)
+
+  function openImage(src: string) {
+    setSelectedImage(src)
+    setZoomLevel(1)
+  }
+
+  function closeImage() {
+    setSelectedImage(null)
+    setZoomLevel(1)
+  }
+
+  useEffect(() => {
+    if (!selectedImage) return
+
+    function handleWheel(e: WheelEvent) {
+      if (!e.ctrlKey) return
+      e.preventDefault()
+      setZoomLevel(prev => {
+        const delta = e.deltaY > 0 ? -0.25 : 0.25
+        return Math.min(5, Math.max(1, prev + delta))
+      })
+    }
+
+    window.addEventListener("wheel", handleWheel, { passive: false })
+    return () => window.removeEventListener("wheel", handleWheel)
+  }, [selectedImage])
 
   return (
-    <section id="events" className="py-16 md:py-24 bg-background">
+    <section id="events" className="py-24 md:py-36 bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
-            Upcoming Events
+        <div className="text-center mb-16 md:mb-20">
+          <h2 className="text-4xl md:text-6xl font-serif text-foreground mb-4">
+            Events
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Connect with fellow photographers and elevate your skills
@@ -34,11 +60,11 @@ export function Events({ events, showViewAll }: EventsProps) {
               key={index}
               className="bg-card border border-border rounded-lg p-6 md:p-8 hover:shadow-md transition-all duration-300 flex flex-col md:flex-row gap-6"
             >
-              {/* Poster on the left */}
+              {/* Poster on the left — fixed to Street Photography aspect ratio (763:1080) */}
               <div className="w-full md:w-1/3 flex justify-center">
                 <div
-                  className="relative w-full h-80 cursor-pointer"
-                  onClick={() => setSelectedImage(event.poster)}
+                  className="relative w-full h-80 cursor-zoom-in"
+                  onClick={() => openImage(event.poster)}
                 >
                   <Image
                     src={event.poster}
@@ -107,26 +133,20 @@ export function Events({ events, showViewAll }: EventsProps) {
       {/* Image Popup Overlay */}
       {selectedImage && (
         <div
-          className={`fixed inset-0 bg-black/70 flex items-center justify-center z-50 ${zoomed ? "overflow-auto cursor-zoom-out" : "cursor-zoom-in"
-            }`}
-          onClick={() => {
-            setSelectedImage(null)
-            setZoomed(false)
-          }}
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 cursor-pointer overflow-hidden"
+          onClick={closeImage}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={selectedImage}
             alt="Full poster"
-            className={`rounded-lg shadow-lg transition-transform duration-300 ${zoomed
-              ? "max-w-none max-h-none scale-[2] cursor-zoom-out"
-              : "max-w-3xl max-h-[80vh] cursor-zoom-in"
-              }`}
-            onClick={(e) => {
-              e.stopPropagation()
-              setZoomed(!zoomed)
-            }}
+            className="rounded-lg shadow-lg transition-transform duration-150 max-w-3xl max-h-[80vh] object-contain cursor-default"
+            style={{ transform: `scale(${zoomLevel})`, transformOrigin: "center center" }}
+            onClick={(e) => e.stopPropagation()}
           />
+          <p className="absolute bottom-4 text-white/60 text-sm select-none">
+            Ctrl + scroll to zoom · Click outside to close
+          </p>
         </div>
       )}
     </section>
