@@ -17,9 +17,9 @@ export function Gallery({ projects, showViewAll }: GalleryProps) {
       className="py-24 md:py-36 bg-background scroll-mt-20"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-6xl font-serif text-foreground mb-4 text-balance">
-            Our Collection
+        <div className="text-center mb-12 md:mb-30">
+          <h2 className="text-4xl md:text-8xl font-serif text-foreground mb-8 text-balance">
+            GALLERY
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore the stunning work from our community members

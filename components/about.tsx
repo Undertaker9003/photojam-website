@@ -12,15 +12,17 @@ export function About() {
           {/* Left side: text */}
           <div>
             <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6 text-balance">About Photojam</h2>
-            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              Every photo tells a story, and every story starts here - with Photojam. We believe that photography is more than just capturing light—it's about telling stories,
-              preserving moments, and celebrating the human experience.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our community brings together enthusiasts, professionals, and students united by a passion for the visual
-              arts. Through workshops, exhibitions, and collaborative projects, we create spaces where creativity
-              flourishes.
-            </p>
+            <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Born in the challenging times of the pandemic, Photojam began as a digital haven connecting photographers and creatives across Malaysia, exploring over 300 diverse themes from ocean depths to urban skylines.
+              </p>
+              <p>
+                Now in our sixth year, we've transformed into a thriving ecosystem that nurtures artistic growth, collaboration, and innovative expression through comprehensive programming.
+              </p>
+              <p>
+                Our nationwide photo expeditions unite photography enthusiasts of all levels, journeying through Malaysia's breathtaking natural wonders and vibrant cityscapes. Strategic alliances with industry giants including Canon, Fujifilm, Olympus, Sigma, Sony, and ThinkTank empower our community with privileged access to premium equipment and masterclass-level expertise, elevating the technical and artistic standards of Malaysian photography.
+              </p>
+            </div>
           </div>
 
           {/* Right side: stats */}
@@ -34,6 +36,19 @@ export function About() {
                 <p className="text-muted-foreground text-sm md:text-base">{stat.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Vision for Growth Section */}
+        <div className="mt-20 max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-8 text-balance">Our Vision For Growth</h2>
+          <div className="space-y-4 text-lg md:text-xl text-muted-foreground leading-relaxed text-left md:text-center">
+            <p>
+              We invite passionate young creatives across all states to collaborate in this ambitious endeavor. Whether through our regional photo walks, workshops, & 1 school 1 camera initiatives, every participant becomes part of a larger mission to strengthen Malaysia's creative ecosystem. By empowering youth with photographic skills and artistic vision, we're fostering a new generation of visual communicators who will document, interpret & express our nation's narrative.
+            </p>
+            <p>
+              More than an organization, Photojam represents a collective aspiration - to see Malaysia through fresh perspectives, to tell our stories with authenticity, and to create meaningful connections that transcend geographical and cultural boundaries through the universal language of imagery. Join us as we focus our lenses on building a more creative, connected Malaysia.
+            </p>
           </div>
         </div>
       </div>

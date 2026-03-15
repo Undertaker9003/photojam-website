@@ -6,7 +6,7 @@ export type Event = {
   location: string
   attendees: string
   description: string
-  poster: string
+  poster: string | string[]
   formLink: string
 }
 
@@ -20,7 +20,7 @@ export const events: Event[] = [
     attendees: "50 photographers",
     description:
       "Join us for a guided exploration, eagle feeding & firefly watching at Kuala Sepetang!",
-    poster: "/kuala sepetang thumbnail.jpg",
+    poster: "/kuala sepetang thumbnail.webp",
     formLink:
       "https://docs.google.com/forms/d/e/1FAIpQLSffD0QIxgQKLeUNzSqAsi1UlRN-0bE0E2HyH74HVTN4SslEMg/viewform?usp=send_form",
   },
@@ -33,7 +33,7 @@ export const events: Event[] = [
     attendees: "40 participants",
     description:
       "Master lighting techniques and composition for compelling street photography!",
-    poster: "/street photography BB thumbnail.jpg",
+    poster: "/street photography BB thumbnail.webp",
     formLink: "https://forms.gle/pGWmxfTsMbKkm1j48",
   },
   {
@@ -60,6 +60,18 @@ export const events: Event[] = [
     poster: "/xmumtalk.jpeg",
     formLink:
       "https://docs.google.com/forms/d/e/1FAIpQLSeHk5UC6Q-vYvk56Av1Zpw_c8Ii1FumgLFoPFdo82WUhNUtww/viewform?usp=send_form",
+  },
+  {
+    title: "DJI x Photojam Street Photography Workshop",
+    date: "March 28, 2026",
+    sortDate: "2026-03-28",
+    time: "10:00 AM – 3:00 PM",
+    location: "Low Yat, Kuala Lumpur",
+    attendees: "Limited to 30 slots",
+    description:
+      "Join us for the DJI x Photojam Street Photography Workshop! Level up your skills with hands-on gear rental, expert sharing by a DJI Ambassador, and a guided street shoot!",
+    poster: ["/dji workshop.jpeg", "/dji workshop itinerary.jpeg"],
+    formLink: "https://forms.gle/x8JNxDzSh2qmw8F58",
   },
 ]
 

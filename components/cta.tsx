@@ -6,11 +6,10 @@ export function CTA() {
     <section className="py-24 md:py-36 bg-gradient-to-r from-primary/10 via-background to-secondary/10">
       <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
         <h2 className="text-4xl md:text-6xl font-serif text-foreground mb-6 text-balance">
-          Ready to Join the Community?
+          Call To Action
         </h2>
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-          Become part of Photojam and unlock exclusive events, workshops, and networking opportunities with fellow
-          photography enthusiasts.
+        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+          Young Malaysians with a passion for visual storytelling - your perspective matters. Whether you're an aspiring photographer, digital creator, or simply curious about the power of imagery, we welcome you to be part of this growing community. Together, let's capture Malaysia's diversity, share untold stories, and shape our nation's creative future - one frame at a time.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
