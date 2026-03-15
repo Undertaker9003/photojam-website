@@ -262,14 +262,15 @@ export function GalleryViewer({ images, projectTitle }: GalleryViewerProps) {
 
       {/* Main photo display — 3 pre-rendered images, only current visible */}
       <div className="relative w-full h-[85vh]">
-        <img ref={prevRef} alt="" className="hidden" />
+        <img ref={prevRef} alt="" decoding="async" className="absolute w-0 h-0 opacity-0" />
         <img
           ref={currentRef}
           alt=""
+          decoding="sync"
           className="absolute inset-0 w-full h-full object-contain"
-          onLoad={() => setTimeout(() => setIsLoaded(true), 5000)}
+          onLoad={() => setTimeout(() => setIsLoaded(true), 2000)}
         />
-        <img ref={nextRef} alt="" className="hidden" />
+        <img ref={nextRef} alt="" decoding="async" className="absolute w-0 h-0 opacity-0" />
       </div>
 
       {/* Filmstrip bar */}
@@ -307,7 +308,7 @@ export function GalleryViewer({ images, projectTitle }: GalleryViewerProps) {
         </div>
       </div>
 
-      {/* Loading overlay */}
+      {/* Loading overlay — commented out for testing
       {!isLoaded && (
         <div className="fixed inset-0 z-50 bg-black flex items-center justify-center">
           <p className="text-white/60 text-lg animate-pulse tracking-widest">
@@ -315,6 +316,7 @@ export function GalleryViewer({ images, projectTitle }: GalleryViewerProps) {
           </p>
         </div>
       )}
+      */}
     </div>
   )
 }
