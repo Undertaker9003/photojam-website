@@ -11,9 +11,48 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 const dmSerif = DM_Serif_Display({ weight: "400", subsets: ["latin"], variable: "--font-serif" })
 
 export const metadata: Metadata = {
-  title: "Photojam - Photography Society",
-  description: "Join Photojam, a vibrant photography society celebrating the art of capturing moments.",
-  generator: "v0.app",
+  title: {
+    default: "Photojam - Photography Community in Malaysia",
+    template: "%s | Photojam",
+  },
+  description:
+    "Photojam is a photography community in Malaysia. Join our workshops, photo walks, and events to connect with fellow photographers and grow your craft.",
+  keywords: [
+    "Photojam",
+    "Photojam Malaysia",
+    "photography community Malaysia",
+    "photography society Malaysia",
+    "photo walks Malaysia",
+    "photography workshops",
+    "photography events Malaysia",
+  ],
+  metadataBase: new URL("https://photojam.com"),
+  openGraph: {
+    title: "Photojam - Photography Community in Malaysia",
+    description:
+      "Join Photojam, a vibrant photography community in Malaysia. Workshops, photo walks, and events for all skill levels.",
+    url: "https://photojam.com",
+    siteName: "Photojam",
+    locale: "en_MY",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Photojam - Photography Community in Malaysia",
+    description:
+      "Join Photojam, a vibrant photography community in Malaysia. Workshops, photo walks, and events for all skill levels.",
+  },
+  alternates: {
+    canonical: "https://photojam.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 }
 
 export default function RootLayout({

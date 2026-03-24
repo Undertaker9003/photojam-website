@@ -46,6 +46,12 @@ export function Header() {
           >
             Events
           </Link>
+          <Link
+            href="/photobook"
+            className="text-foreground hover:text-primary transition"
+          >
+            Photobook
+          </Link>
 
           <a
             href="https://chat.whatsapp.com/LRWRXj6N80kJcUIsIHPV6V"
@@ -92,6 +98,13 @@ export function Header() {
               onClick={() => setMenuOpen(false)}
             >
               Events
+            </Link>
+            <Link
+              href="/photobook"
+              className="text-foreground hover:text-primary transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Photobook
             </Link>
             <a
               href="https://chat.whatsapp.com/LRWRXj6N80kJcUIsIHPV6V"
