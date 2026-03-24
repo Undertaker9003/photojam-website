@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://photojam.com/sitemap.xml",
+    sitemap: "https://photojam.com.my/sitemap.xml",
   }
 }

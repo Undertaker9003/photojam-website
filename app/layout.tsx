@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     "photography workshops",
     "photography events Malaysia",
   ],
-  metadataBase: new URL("https://photojam.com"),
+  metadataBase: new URL("https://photojam.com.my"),
   openGraph: {
     title: "Photojam - Photography Community in Malaysia",
     description:
       "Join Photojam, a vibrant photography community in Malaysia. Workshops, photo walks, and events for all skill levels.",
-    url: "https://photojam.com",
+    url: "https://photojam.com.my",
     siteName: "Photojam",
     locale: "en_MY",
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "Join Photojam, a vibrant photography community in Malaysia. Workshops, photo walks, and events for all skill levels.",
   },
   alternates: {
-    canonical: "https://photojam.com",
+    canonical: "https://photojam.com.my",
   },
   robots: {
     index: true,
