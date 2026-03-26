@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { PhotobookViewer } from "@/components/photobook-viewer"
 
 export const metadata: Metadata = {
-  title: "Photobook - Photojam",
+  title: "Photobook - PhotoJam",
   description: "Browse our digital photobook collection.",
 }
 

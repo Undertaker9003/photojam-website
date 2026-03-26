@@ -19,7 +19,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "poilam-workshop",
-    title: "Photojam x PoiLam workshop",
+    title: "PhotoJam x PoiLam workshop",
     description: "Capturing the essence of stage show through bold perspectives",
     thumbnail: "/poilam workshop thumbnail.webp",
     externalLink: "https://drive.google.com/drive/folders/1KH35rDOEpwIt3QbiUtnOcf71FeAYRcJQ?usp=sharing",

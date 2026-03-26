@@ -16,7 +16,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-3">
           <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photojam%20logo-rsWS56WuHPr1TToAJcP5xxOXcf0DHo.png"
-            alt="Photojam Logo"
+            alt="PhotoJam Logo"
             width={48}
             height={48}
             className="w-12 h-12"

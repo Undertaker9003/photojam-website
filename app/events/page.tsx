@@ -3,8 +3,8 @@ import { getEvents } from "@/lib/events"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Events - Photojam",
-  description: "Upcoming and past photography events from the Photojam community.",
+  title: "Events - PhotoJam",
+  description: "Upcoming and past photography events from the PhotoJam community.",
 }
 
 export default function EventsPage() {

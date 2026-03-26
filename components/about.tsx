@@ -11,10 +11,10 @@ export function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           {/* Left side: text */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6 text-balance">About Photojam</h2>
+            <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-6 text-balance">About PhotoJam</h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Born in the challenging times of the pandemic, Photojam began as a digital haven connecting photographers and creatives across Malaysia, exploring over 300 diverse themes from ocean depths to urban skylines.
+                Born in the challenging times of the pandemic, PhotoJam began as a digital haven connecting photographers and creatives across Malaysia, exploring over 300 diverse themes from ocean depths to urban skylines.
               </p>
               <p>
                 Now in our sixth year, we've transformed into a thriving ecosystem that nurtures artistic growth, collaboration, and innovative expression through comprehensive programming.
@@ -47,7 +47,7 @@ export function About() {
               We invite passionate young creatives across all states to collaborate in this ambitious endeavor. Whether through our regional photo walks, workshops, & 1 school 1 camera initiatives, every participant becomes part of a larger mission to strengthen Malaysia's creative ecosystem. By empowering youth with photographic skills and artistic vision, we're fostering a new generation of visual communicators who will document, interpret & express our nation's narrative.
             </p>
             <p>
-              More than an organization, Photojam represents a collective aspiration - to see Malaysia through fresh perspectives, to tell our stories with authenticity, and to create meaningful connections that transcend geographical and cultural boundaries through the universal language of imagery. Join us as we focus our lenses on building a more creative, connected Malaysia.
+              More than an organization, PhotoJam represents a collective aspiration - to see Malaysia through fresh perspectives, to tell our stories with authenticity, and to create meaningful connections that transcend geographical and cultural boundaries through the universal language of imagery. Join us as we focus our lenses on building a more creative, connected Malaysia.
             </p>
           </div>
         </div>

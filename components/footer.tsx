@@ -23,7 +23,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo / Description */}
           <div>
-            <h3 className="text-lg font-bold mb-4">Photojam</h3>
+            <h3 className="text-lg font-bold mb-4">PhotoJam</h3>
             <p className="text-background/80 text-sm leading-relaxed">
               A community dedicated to celebrating photography and visual storytelling.
             </p>
@@ -75,7 +75,7 @@ export function Footer() {
 
         {/* Footer bottom */}
         <div className="border-t border-background/20 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm">
-          <p className="text-background/80">&copy; 2025 Photojam. All rights reserved.</p>
+          <p className="text-background/80">&copy; 2025 PhotoJam. All rights reserved.</p>
         </div>
       </div>
     </footer>

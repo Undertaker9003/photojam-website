@@ -3,7 +3,7 @@ import { getProjects } from "@/lib/projects"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Gallery - Photojam",
+  title: "Gallery - PhotoJam",
   description: "Explore the stunning photography collections from our community.",
 }
 

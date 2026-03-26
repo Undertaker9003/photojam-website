@@ -37,7 +37,7 @@ export const events: Event[] = [
     formLink: "https://forms.gle/pGWmxfTsMbKkm1j48",
   },
   {
-    title: "Photojam Christmas Party 2025",
+    title: "PhotoJam Christmas Party 2025",
     date: "December 21, 2025",
     sortDate: "2025-12-21",
     time: "7:00 PM - 10:00 PM",
@@ -62,14 +62,14 @@ export const events: Event[] = [
       "https://docs.google.com/forms/d/e/1FAIpQLSeHk5UC6Q-vYvk56Av1Zpw_c8Ii1FumgLFoPFdo82WUhNUtww/viewform?usp=send_form",
   },
   {
-    title: "DJI x Photojam Street Photography Workshop",
+    title: "DJI x PhotoJam Street Photography Workshop",
     date: "March 28, 2026",
     sortDate: "2026-03-28",
     time: "10:00 AM – 3:00 PM",
     location: "Low Yat, Kuala Lumpur",
     attendees: "Limited to 30 slots",
     description:
-      "Join us for the DJI x Photojam Street Photography Workshop! Level up your skills with hands-on gear rental, expert sharing by a DJI Ambassador, and a guided street shoot!",
+      "Join us for the DJI x PhotoJam Street Photography Workshop! Level up your skills with hands-on gear rental, expert sharing by a DJI Ambassador, and a guided street shoot!",
     poster: ["/dji workshop.jpeg", "/dji workshop itinerary.jpeg"],
     formLink: "https://forms.gle/x8JNxDzSh2qmw8F58",
   },

@@ -71,7 +71,7 @@ export function PhotobookViewer() {
               src={FLIPBOOK_EMBED_URL}
               className="w-full h-full border-0"
               allowFullScreen
-              title="Photojam Photobook"
+              title="PhotoJam Photobook"
               loading="lazy"
             />
           ) : (
