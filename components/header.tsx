@@ -15,19 +15,25 @@ export function Header() {
         {/* Logo Section */}
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photojam%20logo-rsWS56WuHPr1TToAJcP5xxOXcf0DHo.png"
+            src="/PhotoJam-LOGO.png"
             alt="PhotoJam Logo"
             width={48}
             height={48}
             className="w-12 h-12"
           />
           <span className="text-2xl font-bold text-foreground hidden sm:inline">
-            photojam
+            PhotoJam
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
+          <Link
+            href="/photobook"
+            className="text-foreground hover:text-primary transition"
+          >
+            Photobook
+          </Link>
           <Link
             href="/gallery"
             className="text-foreground hover:text-primary transition"
@@ -45,12 +51,6 @@ export function Header() {
             className="text-foreground hover:text-primary transition"
           >
             Events
-          </Link>
-          <Link
-            href="/photobook"
-            className="text-foreground hover:text-primary transition"
-          >
-            Photobook
           </Link>
 
           <a
@@ -79,6 +79,13 @@ export function Header() {
         <div className="md:hidden bg-background border-t border-border shadow-lg">
           <nav className="flex flex-col items-center py-4 gap-4">
             <Link
+              href="/photobook"
+              className="text-foreground hover:text-primary transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Photobook
+            </Link>
+            <Link
               href="/gallery"
               className="text-foreground hover:text-primary transition"
               onClick={() => setMenuOpen(false)}
@@ -98,13 +105,6 @@ export function Header() {
               onClick={() => setMenuOpen(false)}
             >
               Events
-            </Link>
-            <Link
-              href="/photobook"
-              className="text-foreground hover:text-primary transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Photobook
             </Link>
             <a
               href="https://chat.whatsapp.com/LRWRXj6N80kJcUIsIHPV6V"
